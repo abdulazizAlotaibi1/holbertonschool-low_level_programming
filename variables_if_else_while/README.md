@@ -3,4 +3,5 @@ task 1: This program will assign a random number to the variable n each time it 
 a program that prints the alphabet in lowercase, followed by a new line.
 Task 3 : Write a program that prints the alphabet in lowercase, and then in uppercase, followed by a new line.
 task 4: a program that prints the alphabet in lowercase, followed by a new line. Print all the letters except q and e.
+task 6: Write a program that prints all single digit numbers of base 10 starting from 0, followed by a new line. You are not allowed to use any variable of type char.
 

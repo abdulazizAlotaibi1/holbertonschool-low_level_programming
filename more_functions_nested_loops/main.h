@@ -3,5 +3,6 @@
 
 int _isupper(int c); /*Task 0 */
 int _isdigit(int c); /* Task 1*/
+int mul(int a, int b); /* Task 2 */
 
 #endif

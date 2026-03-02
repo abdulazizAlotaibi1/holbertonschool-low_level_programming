@@ -9,5 +9,6 @@ void print_numbers(void); /* Task 3*/
 void print_most_numbers(void); /* Task 4*/ 
 void more_numbers(void);
 void print_line(int n);
+void print_diagonal(int n);
 
 #endif

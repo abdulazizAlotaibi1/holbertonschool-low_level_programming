@@ -8,9 +8,10 @@
  */
 int _atoi(char *s)
 {
-	unsigned int len = 0, num_digits = 0, result = 0, multiplier = 1;
+	int len = 0, num_digits = 0, result = 0, multiplier = 1;
 	int sign = 1, i;
 
+	/* 1. find the digits and track the sign */
 	while (s[len] != '\0')
 	{
 		if (num_digits > 0 && (s[len] < '0' || s[len] > '9'))
@@ -28,6 +29,7 @@ int _atoi(char *s)
 		len++;
 	}
 
+	/* 2. calculate the integer from digits */
 	for (i = len - num_digits; i < len; i++)
 	{
 		result += (s[i] - '0') * multiplier;

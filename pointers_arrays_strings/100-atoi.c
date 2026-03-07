@@ -1,40 +1,41 @@
 #include "main.h"
 
 /**
- * _atoi - converts a string to an integer
- * @s: the input string
+ * _atoi - convert string to integer
+ * @s: input string
  *
- * Return: the integer value
+ * Return: integer value
  */
 int _atoi(char *s)
 {
-	int len = 0, num_digits = 0, result = 0, multiplier = 1;
-	int sign = 1, i;
+	unsigned int i = 0, digits = 0, num = 0, mult = 1, start;
+	int sign = 1;
 
-	/* 1. find the digits and track the sign */
-	while (s[len] != '\0')
+	while (s[i] != '\0')
 	{
-		if (num_digits > 0 && (s[len] < '0' || s[len] > '9'))
+		if (digits > 0 && (s[i] < '0' || s[i] > '9'))
 			break;
 
-		if (s[len] == '-')
-			sign *= -1;
+		if (s[i] == '-')
+			sign = -sign;
 
-		if (s[len] >= '0' && s[len] <= '9')
+		if (s[i] >= '0' && s[i] <= '9')
 		{
-			if (num_digits > 0)
-				multiplier *= 10;
-			num_digits++;
+			if (digits > 0)
+				mult *= 10;
+			digits++;
 		}
-		len++;
+		i++;
 	}
 
-	/* 2. calculate the integer from digits */
-	for (i = len - num_digits; i < len; i++)
+	start = i - digits;
+
+	while (start < i)
 	{
-		result += (s[i] - '0') * multiplier;
-		multiplier /= 10;
+		num += (s[start] - '0') * mult;
+		mult /= 10;
+		start++;
 	}
 
-	return (result * sign);
+	return (num * sign);
 }

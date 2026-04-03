@@ -2,46 +2,28 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - concatenates two strings
- * @s1: first string
- * @s2: second string
- * @n: number of bytes from s2
+ * _calloc - allocates memory for an array and initializes it to zero
+ * @nmemb: number of elements
+ * @size: size of each element
  *
- * Return: pointer to new string, or NULL if it fails
+ * Return: pointer to allocated memory, or NULL if it fails
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *new_str;
-	unsigned int len1, len2, i, j;
+	void *ptr;
+	unsigned int i;
+	char *p;
 
-	if (s1 == NULL)
-		s1 = "";
-
-	if (s2 == NULL)
-		s2 = "";
-
-	len1 = 0;
-	while (s1[len1])
-		len1++;
-
-	len2 = 0;
-	while (s2[len2])
-		len2++;
-
-	if (n >= len2)
-		n = len2;
-
-	new_str = malloc(sizeof(char) * (len1 + n + 1));
-	if (new_str == NULL)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	for (i = 0; i < len1; i++)
-		new_str[i] = s1[i];
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
 
-	for (j = 0; j < n; j++)
-		new_str[i + j] = s2[j];
+	p = ptr;
+	for (i = 0; i < nmemb * size; i++)
+		p[i] = 0;
 
-	new_str[len1 + n] = '\0';
-
-	return (new_str);
+	return (ptr);
 }
